@@ -1,0 +1,16 @@
+body{
+    background-color:#819f82;
+    
+}
+.main {
+    margin: 0 auto;
+    max-width: 46em;
+    background-color: #edfdee;
+    border-radius: 1em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+h1{
+    text-align: center;
+}
