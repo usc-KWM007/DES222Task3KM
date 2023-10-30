@@ -121,25 +121,169 @@
             <br>
             I also noted if the main thread is too overloaded for one Micro:bit we could split to two, one for each LED
             strip, Microphone and vibration motors (like one per shoulder strap).<br>
-            We decided we would use two microphones to experiment with directional sound for users to be able to tell if the sound is more to their left or right based on which LED lights are lit up more of which vibration motors are vibrating.
+            We decided we could use two microphones to experiment with directional sound for users to be able to tell if
+            the sound is more to their left or right based on which LED lights are lit up more of which vibration motors
+            are vibrating.
         </p>
         <img src="images/pseudocode.jpg" alt="Pseudocode">
         <img src="images/pseudocode2.jpg" alt="Pseudocode">
 
         <h1>Wiring Concept</h1>
-        <p>Once again responding to Ricardo's concepts and my own Pseudocode I made a wiring diagram using TinkerCad which is a nice website for creating diagrams and visualising circuits, it even has lots of Micro:Bit components.<br>
-            The only I could one I could not find was a Microphone so I used a different sensor that looked similar and 3 wires like the Microphones we may use. I wired it up using a Micro:Bit breakout board and added notes on what each component is.
-            I decided to wire the vibration motors in series to save a lot of extra wiring (however it is unconfirmed if this would work more research is required).
-            I noted not to pay to much attention to which pins each input and output was wired to as it was not finalised.</p>
-        
-            <img src="images/wiringDiagram.PNG" alt="Wiring Diagram">
-        
+        <p>Once again responding to Ricardo's concepts and my own Pseudocode I made a wiring diagram using TinkerCad
+            which is a nice website for creating diagrams and visualising circuits, it even has lots of Micro:Bit
+            components.<br>
+            The only I could one I could not find was a Microphone so I used a different sensor that looked similar and
+            3 wires like the Microphones we may use. I wired it up using a Micro:Bit breakout board and added notes on
+            what each component is.
+            I decided to wire the vibration motors in series to save a lot of extra wiring (however it is unconfirmed if
+            this would work more research is required).
+            I noted not to pay to much attention to which pins each input and output was wired to as it was not
+            finalised.</p>
+
+        <img src="images/wiringDiagram.PNG" alt="Wiring Diagram">
+
         <h1>LED and Microphone Research</h1>
-        <p><a href = "https://www.keyestudio.com/products/keyestudio-microphone-sound-module-for-bbc-microbit">I found a pretty cheap external microphone that may be useful to try and have a microphone outside of the backpack for better pickup</a><br><br>
-        <a href = "https://support.microbit.org/support/solutions/articles/19000130206-using-neopixels-with-the-micro-bit">Decided we would use NeoPixels as they have a built in library for Micro:Bit that look pretty easy to code as seen in the documentation</a>
+        <p><a href="https://www.keyestudio.com/products/keyestudio-microphone-sound-module-for-bbc-microbit">I found a
+                pretty cheap external microphone that may be useful to try and have a microphone outside of the backpack
+                for better pickup</a><br><br>
+            <a
+                href="https://support.microbit.org/support/solutions/articles/19000130206-using-neopixels-with-the-micro-bit">Decided
+                we would use NeoPixels as they have a built in library for Micro:Bit that look pretty easy to code as
+                seen in the documentation</a>
         </p>
 
-        <p>Up to 2023/9/17</p>
+        <h1>Potential Micro Controller Options - 21/9/2023</h1>
+        <p>Discussed with Toby (workshop lecturer) about the our different options for Micro Controlers:<br>
+            <br>
+            Teensy:
+            <a href="https://www.pjrc.com/teensy/">USB development board, can use Arduino software</a><br>
+            <br>
+            Bela:
+            <a href="https://bela.io/">C/C+, designed for sound projects, expensive</a><br>
+            <br>
+            Pi Zero:
+            <a href="https://www.raspberrypi.com/products/raspberry-pi-zero/">A full computer</a><br>
+            <br>
+            Micro:Bit:
+            Already owned,
+            does have input and output options,
+            limited compute power<br><br>
+            We decided on sticking with the Micro:Bit as we already have experience with Micro:Bit's and they have all
+            of the functionality we need to visualise sound based on volume.
+        </p>
+
+        <h1>Rapid Prototyping</h1>
+        <p>
+            I bought in my Micro:Bit and an old backpack for rapid prototyping so we could test out the backpack
+            design<br><br>
+            Rapid Prototyping - get a quick idea on what we want to make and how the user would use it. <br><br>
+
+            Borrowed a Neopixel LED strip to work on a concept to be used in the task 2 presentation.
+            During the workshop we tested out the neopixel with the Micro:Bit.
+            Got individual LED's to light up and react to the built in Micro:Bit's microphone.
+            However we were having issues with smoothness and the volume.
+            The video below was taken by Jorja.
+        </p>
+        <iframe src="https://drive.google.com/file/d/1-noQratIZUi5u20Kdq0DTpgu9IVr4ck2/preview" width="640" height="480"
+            allow="autoplay"></iframe>
+        <p>
+            Decided for the concept we want to have the LED's react as:<br>
+            - Increase the number of LED's lit up based on volume of sound<br>
+            - Colour of LED's also change based on volume of sound (green to red)<br><br>
+
+            We looked into how we could put the LED on the shoulder strap and then a cloth over the LED strip for
+            protection but you can still view the LED emission.<br>
+            The photo below is from Jorja.
+        </p>
+
+        <img src="images/lightCloth.jpg" alt="LED strip with cloth over it">
+
+        <p>
+            For now we want to use Micro:Bit for simplicity with one Microphone however further developments could add a
+            second for directionality and add haptics. <br><br>
+        </p>
+        <h1>Job Roles for Presentation</h1>
+
+        Decided I would be working on the concept and presentation over the break and relevant projects.<br><br>
+        Jorja would take the old backpack and work on the materials and how it would be implemented on the bag as
+        well as the presentation and draw up some concepts.<br><br>
+        Ricardo would work on the code with me and the presentation and look into other concepts and similar
+        projects.<br><br>
+        I created a shared online PowerPoint for us to work on together.
+        </p>
+
+        <h1>Related Projects</h1>
+        <p>https://www.instructables.com/Sound-Reactive-LED-Equalizer-Skirt/</p>
+
+        <h1>Concept for Presentation</h1>
+        <p>
+            Materials:<br>
+            1 NeoPixel LED stip (26 LEDS)<br>
+            Micro:Bit<br>
+            Potentiometer<br>
+            <br>
+            Goal<br>
+            Show LED's reacting to sounds and use potentiometer to change microphone gain<br>
+            <br>
+        <h2>Designing without potentiometer</h2>
+        From testing 130 sound level is a loud clap when serial writing the sound level
+        <img src="images/testingMicrophone.png" alt="Testing sound levels">
+        <p>
+            So we have 26 leds that need to display up to a value of 130 <br>
+            So 130/26 = 5 <br>
+            So every 5 sound levels a new LED should light up<br>
+            <br>
+            So we will create a new variable that is rounded to the nearest whole and takes the sound level and divide
+            by 5.<br><br>
+            As expected:
+        </p>
+        <img src="images/noiseLevelDivided.png" alt="Noise Level Divided">
+        <p>
+            Now to control the LED's<br>
+            Using the Neopixel library on makecode Micro:Bit<br>
+            <br>
+            We will first initialise the LED strip with 26 LEDs<br>
+            Then set a range within the strip from 0 to the sound conversion from the previous step<br>
+            Then light up that range
+        </p>
+        <img src="images/controllingLEDs.png" alt="Controlling LEDs">
+        <p>
+            This does work however the LED's do not turn off after being activated<br>
+            After tinkering I good solution is to get the another range of the LED's that should be turned off and set
+            those to black as well
+        </p>
+        <img src="images/turningOffLEDs.png" alt="Turning off LEDs">
+        <p>
+            This gives a convincing effect:
+        </p>
+
+        <iframe src="https://drive.google.com/file/d/1KAQP6LnKsSYdYfaXWjpCKj0nAFy8Ip9X/preview" width="640" height="480"
+            allow="autoplay"></iframe>
+        <p>
+            Now we want to add the optional gain affect using the potentiometer to in easy terms change the sensitivity
+            of the LED's by altering the soundConversion
+        </p>
+        <img src="images/alteratingSoundConversion.png" alt="Alterating Sound Conversion">
+
+        <p>
+            Once again serial writing from pin 1 (potentiometer) gives as values from 0 to 1020:
+        </p>
+        <img src="images/potentiometerRange.png" alt="Potentiometer Range">
+
+        <p>
+            However it was a bit more stable using a seperate ground and 3.3v pin on the breakout board than sharing
+            with the LED strip, this may be due to interference so for now they are kept separate.<br>
+            <br>
+            To convert:<br>
+            So if we are dividing currently by 5 I believe a sensible adjustment could be dividing the sound by 1 (so it
+            is super sensitive) to 10 (very quite). <br> This can be adjusted later.
+            <br>
+            So a max of 1020 needs to be divided into 10 parts<br>
+            So simply 1020/100 = 10.2 which is close enough to the max value.<br>
+            <br>
+            So it is a value of 0 - 10.2 however we need to remove the 0 option <br>
+            There is a constrain built in function so we can limit the value in between 1 and 10.
+        </p>
 
 
     </div>
