@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>DES222Task3KM</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 </head>
 
 <body>
@@ -13,19 +15,135 @@
 
         <h1>DES222 Task 3 Kaleb McKewen</h1>
         <h1>The Habitualization Bag</h1>
+        <div class=center>
+
+            <h2>Ricardo - Programming, research, fabrications<br>
+                Kaleb - Programming, electronics, fabrication, research<br>
+                Jorja - Design, fabrication, research</h2>
+        </div>
+
+        <h2>Add hero IMAGE!</h2>
 
         <h2>Table of Contents:</h2>
+        <h3>Design Intent</h3>
+        <h3>Similar Projects</h3>
+        <h3>Design Concepts</h3>
+        <h3>Pseudocode</h3>
+        <h3>Wiring Diagram</h3>
+        <h3>Research</h3>
 
-        <h2>Design Intent</h2>
-        <h2>Similar Projects</h2>
-        <h2>Design Concepts</h2>
-        <h2>Pseudocode</h2>
-        <h2>Wiring Diagram</h2>
-        <h2>Research</h2>
+        <h1>Team - 7/9/2023</h1>
+        <p>Our team was formed during a class workshop where individually we pitched ideas. Originally my idea was a
+            rave suit. A suit that could be worn at raves that reacted to sound around you. It could display different
+            patterns and colours based on the music around you. Ricardo's idea was a helper for blind people that would
+            use vibration haptics to alert blind people of objects around them, for example, if they are about to walk
+            into something. While Jorja's idea was to help hearing-impaired people by visualising high frequencies or
+            different sounds as haptics or lights. This tied into both Ricardo's and my idea thus we formed a group.
+            <br>
+            <br>
+            Jorja had a background of sewing and fabrication, Ricardo had a background of coding and 3D printing while I
+            had a background of coding and wiring. Thus we assigned our roles based on our strengths.
+        </p>
+
+        <h1>Prompt</h1>
+        <div class=center>
+            <p>Our ideas all focused around the same prompt</p>
+            <p>Being in place: Relationships with spaces</p><br>
+        </div>
+
+        <h1>Raw Brainstorming</h1>
+        <p>
+            Some raw brainstorming from our first workshop.
+            Haptic feedbacks to sounds for deaf people.<br>
+            Could react to different frequencies like bomb alarms.<br>
+            <br>
+            The main idea, react to sound and displaying as visual and sensory (haptics).<br>
+            Could be in different forms:<br>
+            Handbag with haptics and LED strips<br>
+            Different pieces of clothing such as a belt that can use haptics to tell you want direction a sound is
+            coming from.<br>
+            Backpack that has LED strips to visualise sound to let people know of sounds near them. <br>
+            <br>
+            We expanded from just deaf people to also people who have other hearing impairments and for people that have
+            headphones in as this is a current modern day issue of people not listening to their surroundings.
+
+        </p>
+
+
+
+        <h1>Design Intent</h1>
+        <p>
+            Myself and Ricardo both created mock brainstorms that we felt encompassed what we are trying to achieve, we
+            then combined and ended up with:
+        </p>
+        <p>Because there are so many situations where hearing-impaired individuals struggle to hear their environments,
+            we intend to change the lack of auditory awareness to helpful alternatives through more prominent senses for
+            those who have hearing impairments or wear earphones so they can *visualise and feel *the sounds of their
+            environment to improve their overall safety and quality of life. To do this, we will engage with the user's
+            relationship with their other senses such as sight and touch.
+        </p>
+        <br>
+
+        <h1>General Research - 9/9/2023</h1>
+        <p>
+            I found some good general sources to start looking at for what we were trying to achieve <br>
+            <br>
+            <a href="https://www.instructables.com/CalmCuff/">Vibration motors using Micro:bit</a><br>
+            <br>
+            <a href="https://littlebirdelectronics.com.au/products/vibrating-mini-motor-disc">Where you can buy the mini
+                vibrating motors</a><br>
+            <br>
+            <a href="https://www.hackster.io/aams86/halloween-micro-bit-3fe7e3">Addressable LEDs and buzzer motor with
+                Micro:bit</a><br>
+            <br>
+            <a href="https://www.instructables.com/MicroBit-RGB-LEDs/">LED strip with Micro:bit</a><br>
+            <br>
+            <a href="https://diyodemag.com/projects/make_it_glow_glowbit_microbit_projects">Using GlowBit and
+                Micro:bit</a><br>
+        </p>
+
+        <h1>Design Concepts - 16/9/2023</h1>
+        <p>Ricardo made two design concept, one for a handbag and one for a backpack<br>
+            We decided we would use the backpack design as it applies to everyone</p>
+
+        <img src="images/designConcept1.jpg" alt="Design Concept">
+        <img src="images/designConcept2.jpg" alt="Design Concept">
+        <img src="images/designConcept3.jpg" alt="Design Concept">
+
+        <p>Jorja also made two design concepts that focus on the future of what is possible when wearable technology
+            gets smaller and more compact</p>
+
+        <img src="images/designConcept4.jpg" alt="Design Concept">
+        <img src="images/designConcept5.jpg" alt="Design Concept">
+
+        <h1>Pseudocode</h1>
+        <p>I decided to make some Pseudocode to get a rough idea of how the Micro:bit's could would function<br>
+            <br>
+            I also noted if the main thread is too overloaded for one Micro:bit we could split to two, one for each LED
+            strip, Microphone and vibration motors (like one per shoulder strap).<br>
+            We decided we would use two microphones to experiment with directional sound for users to be able to tell if the sound is more to their left or right based on which LED lights are lit up more of which vibration motors are vibrating.
+        </p>
+        <img src="images/pseudocode.jpg" alt="Pseudocode">
+        <img src="images/pseudocode2.jpg" alt="Pseudocode">
+
+        <h1>Wiring Concept</h1>
+        <p>Once again responding to Ricardo's concepts and my own Pseudocode I made a wiring diagram using TinkerCad which is a nice website for creating diagrams and visualising circuits, it even has lots of Micro:Bit components.<br>
+            The only I could one I could not find was a Microphone so I used a different sensor that looked similar and 3 wires like the Microphones we may use. I wired it up using a Micro:Bit breakout board and added notes on what each component is.
+            I decided to wire the vibration motors in series to save a lot of extra wiring (however it is unconfirmed if this would work more research is required).
+            I noted not to pay to much attention to which pins each input and output was wired to as it was not finalised.</p>
+        
+            <img src="images/wiringDiagram.PNG" alt="Wiring Diagram">
+        
+        <h1>LED and Microphone Research</h1>
+        <p><a href = "https://www.keyestudio.com/products/keyestudio-microphone-sound-module-for-bbc-microbit">I found a pretty cheap external microphone that may be useful to try and have a microphone outside of the backpack for better pickup</a><br><br>
+        <a href = "https://support.microbit.org/support/solutions/articles/19000130206-using-neopixels-with-the-micro-bit">Decided we would use NeoPixels as they have a built in library for Micro:Bit that look pretty easy to code as seen in the documentation</a>
+        </p>
+
+        <p>Up to 2023/9/17</p>
 
 
     </div>
 </body>
 
-</wrapper>
+
 </html>
