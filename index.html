@@ -24,13 +24,38 @@
 
         <h2>Add hero IMAGE!</h2>
 
+        <p>PUT IN FINAL VIDEOOOO</p>
+
         <h2>Table of Contents:</h2>
+        <h3>Team</h3>
+        <h3>Prompt</h3>
+        <h3>Raw Brainstorming</h3>
         <h3>Design Intent</h3>
-        <h3>Similar Projects</h3>
+        <h3>General Research</h3>
         <h3>Design Concepts</h3>
         <h3>Pseudocode</h3>
-        <h3>Wiring Diagram</h3>
-        <h3>Research</h3>
+        <h3>LED and Microphone Research</h3>
+        <h3>Potential Micro Controller Options</h3>
+        <h3>Rapid Prototyping</h3>
+        <h3>Job Roles for Presentation</h3>
+        <h3>Concept for Presentation</h3>
+        <h3>Further Development on Concept</h3>
+        <h3>Further Microphone Options</h3>
+        <h3>Power Options</h3>
+        <h3>Related Projects</h3>
+        <h3>Code Optimisations</h3>
+        <h3>Feedback from Presentation</h3>
+        <h3>Moving Average</h3>
+        <h3>Noise Reduction</h3>
+        <h3>Parts Research</h3>
+        <h3>User Interaction Diagram</h3>
+        <h3>Testing a Vibration Motor</h3>
+        <h3>Fabrication Diagram</h3>
+        <h3>Final Code</h3>
+        <h3>Duplication</h3>
+        <h3>Final Wiring Diagram</h3>
+        <h3>Final Development</h3>
+        <h3>Reflection</h3>
 
         <h1>Team - 7/9/2023</h1>
         <p>Our team was formed during a class workshop where individually we pitched ideas. Originally my idea was a
@@ -212,9 +237,6 @@
         I created a shared online PowerPoint for us to work on together.
         </p>
 
-        <h1>Related Projects</h1>
-        <p>https://www.instructables.com/Sound-Reactive-LED-Equalizer-Skirt/</p>
-
         <h1>Concept for Presentation</h1>
         <p>
             Materials:<br>
@@ -284,10 +306,655 @@
             So it is a value of 0 - 10.2 however we need to remove the 0 option <br>
             There is a constrain built in function so we can limit the value in between 1 and 10.
         </p>
+        <img src="images/analogRead.png" alt="Analog Read">
+
+        <p>This produces the correct output:</p>
+
+        <img src="images/analogOutput.png" alt="Analog Output">
+
+        <p>So we can set this to a variable and replace the divide by 5 in the soundConversion calculation</p>
+
+        <img src="images/soundConversionCalc.png" alt="Sound Conversion Calculation">
+
+        <p>This works perfectly, as you rotate the potentiometer the 'gain' changes and the LED's become more sensitive.
+            A serial write line was added just for debugging and to view the graph in the emulator.<br><br>
+            I believe this is one of the simplest ways of converting the sound to the LED strip however there may be
+            more efficient ways without having to have a second range that shows black.<br><br>
+
+            To add a bit more usability based on how many LED's are lit up the colour can change from a green to a red.
+            <br><br>
+            So we have 26 LED's<br>
+            We will have 4 zones<br>
+            Green 0 - 6<br>
+            Yellow 7 - 12<br>
+            Orange 13 - 18<br>
+            Red 19 - 26<br>
+            This will be created using a simple if else statement
+        </p>
+
+        <img src="images/colourRange.png" alt="Colour Range Calculation">
+
+        <p>
+            This does work however to reduce flicker it would be nice if each the lower levels had their own colour
+            instead of the entire lit up led's change colour.<br>
+            <br>
+            This was a big more complicated and required more computing.<br>
+            Basically 4 colour ranges needed to be created for each colour
+            Then if for example the value was 9, it would end up in the second range (yellow).<br>
+            So we need to select the amount of LED's that the 9 value affects between the LEDS 6 and 12.<br>
+            And because the NeoPixel library you cannot select between LED's 6 and 9 you need to calculate how many
+            LED's into the range it is. So 9-6 = 3 so we can create a range from 6 with 3 LED's.<br>
+            Then show that range as yellow and then show the green range as well.<br>
+            <br>
+            Also some experimenting with an added pause (delay) added at the end of the main thread to increase the
+            smoothness, from testing 10ms seems to be the sweet spot, any more adds a feeling of lag.<br>
+            <br>
+            I am unsure if this could be reduced in size or if there is a better solution that has the same out come but
+            I have spent time trying to rethink it.<br>
+            <br>
+            However this solution does work well as seen:
+        </p>
+        <iframe src="https://drive.google.com/file/d/1cdWZn4opg44Wo4ZC1SfxSkXMg43_RLkK/preview" width="640" height="480"
+            allow="autoplay"></iframe>
+
+        <img src="images/soundConversionCode1.png" alt="Sound Conversion Code">
+        <img src="images/soundConversionCode2.png" alt="Sound Conversion Code">
+
+        <h1>Further Development on Concept - 23/9/2023</h1>
+
+        <p>Adding different options for the user, change colour scheme using Micro:Bit A button
+            This will be achieved by setting variables for the colours in the scheme.
+            Also change brightness using Micro:Bit B button
+            <br><br>
+            It was tested just with the same colours as before but using variables and it works
+        </p>
+
+        <img src="images/colourVariables.png" alt="Colour Variables">
+
+        <p>
+            Next to add different colours schemes and the if statement which will be a function and a trigger will be
+            used.<br>
+            So each time the button A is pressed the colour scheme index changes the if statement will set a new colour
+            scheme.<br>
+            The exact same process was done for the brightness. Both are these functions are called from the main
+            thread using triggers:
+        </p>
+
+        <img src="images/triggers.png" alt="Triggers">
+        <p>
+            Colour scheme function:
+        </p>
+        <img src="images/colourSchemeFunction.png" alt="Colour Scheme Function">
+
+        <p>Brightness function:</p>
+        <img src="images/brightnessFunction.png" alt="Brightness Function">
+        <p>Main loop function calls (the function were created so the different parts of the program are broken up and
+            easily viewable):</p>
+        <img src="images/mainLoop.png" alt="Main Loop Function">
+        <p>It works as expected when you press button a the colour scheme changes and button b changes the
+            brightness.<br>
+            It was decided for now there are 3 colour schemes:<br>
+            Green to yellow to orange to red<br>
+            Light blue to blue to purple to pink<br>
+            Blue to pink to purple to red<br>
+            <br>
+            As for brightness the values go from:<br>
+            Max<br>
+            Medium<br>
+            Low<br>
+            (The completely off brightness did not work as expected so a separate function could be created to turn off
+            LEDS by displaying black in the future)<br>
+            <br>
+            These added features adds so customisation for the user and personalisation.<br>
+            The brightness may help in different lighting scenarios for example at night time you may want your LED's to
+            be dimmer<br>
+            The colour scheme may help colour blind people or people who just prefer different colour schemes<br>
+            <br>
+            I wanted to give the user the functionality of being able to turn the lights off.<br>
+            So Button A + B will act as a trigger.<br>
+            I also refactored the main thread and transferred the audio visualisation aspect into its own function to
+            split up the code more.<br>
+            <br>
+            The only way to turn the LED's off is to make the ranges display black.<br>
+            <br>
+            Added another if else statement based on if the onOff variable is 1 or 0<br>
+            If 1 it will call the audio visualisation aspect as seen below:<br>
+            <br>
+            Trigger (on start the variable is 1)
+        </p>
+        <img src="images/onOffTrigger.png" alt="On Off Trigger">
+        <p>Main thread:</p>
+        <img src="images/onOffMainLoop.png" alt="On Off Main Loop">
+        <p>Final concept video:</p>
+        <iframe src="https://drive.google.com/file/d/1Ico6QoxvzRcmMtDK3lWV5SpMs_3ukI8u/preview" width="640" height="480"
+            allow="autoplay"></iframe>
+        <img src="images/conceptPicture1.jpg" alt="Concept Picture">
+        <img src="images/conceptPicture2.jpg" alt="Concept Picture">
+        <img src="images/conceptPicture3.jpg" alt="Concept Picture">
+        <img src="images/conceptPicture4.jpg" alt="Concept Picture">
+
+        <h1>Further Microphone Options - 24/9/2023</h1>
+
+        <p>I found another option for an external microphone that was a lot more compact and had a familiar 3.3v, ground
+            and output pins.</p>
+        <a
+            href="https://core-electronics.com.au/electret-microphone-amplifier-max4466-with-adjustable-gain.html">MAX4466</a><br><br>
+
+        <a href="https://www.youtube.com/watch?v=bMs5J4bJOD0">I later found a youtube tutorial on using it</a>
+
+        <h1>Power Options - 25/9/2023</h1>
+        <p>I did some research into our different options for powering the Micro:bit and inturn the LED's and other
+            components.<br>
+            I decided the built in small AAA battery pack might not last very long when powering the LED's.<br>
+            I did some research into larger battery packs such as this <a
+                href="https://core-electronics.com.au/monk-makes-power-for-micro-bit-45192.html">product</a><br>
+            How every a much simplier solution was using a battery pack that I already owned and it has two USB ports if
+            we need to use two Micro:Bits</p>
+        <img src="images/batteryPack.jpg" alt="Battery Pack">
+
+        <h1>Related Projects 26-9-2023</h1>
+        <p>Ricardo and Jorja found some related projects that had similar but different intents and features to what we
+            are trying to create</p>
+        <h2>Sound Shirt</h2>
+        <img src="images/soundShirt.png" alt="Sound Shirt">
+        <br>
+        <a href="https://cutecircuit.com/soundshirt/">View the Sound Shirt</a>
+        <p>The sound shirt is intented for people with hearing impairments to experience music better<br>
+            It uses many haptics and LED's to create an experience from music in a full shirt.<br>
+            It is rechargable, has a mobile app fror controlling the haptics and playing pre-recorded music.
+        </p>
+        <br>
+
+        <h2>Wearable Sound Reactive Equalizer Skirt</h2>
+        <img src="images/soundSkirt.jpg" alt="Wearable Sound Reactive Equalizer Skirt">
+        <br>
+        <a href="https://www.instructables.com/Sound-Reactive-LED-Equalizer-Skirt">View the Wearable Sound Reactive
+            Equalizer Skirt</a>
+        <p>The Wearable Sound Reactive Equalizer Skirt is intented to as a fasion piece to react to the sound of the
+            environment<br>
+            It uses a FLORA micro controller, MAX4466 microphone, many LED's and a battery pack.<br>
+            The LED strip was dismantled and individual LED diodes were inserted into the skirt to create a dotted
+            effect.
+        </p>
+        <br>
+
+        <h2>Neosensory Wrist Band</h2>
+        <img src="images/Neosensory Buzz wristband.jpeg" alt="Neosensory Wrist Band">
+        <br>
+        <a href="https://neosensory.com/product/buzz-otp/">View the Neosensory Wrist Band</a>
+        <p>The Neosensory Wrist Band is intended for hearing-impaired people to help them dynamically feel important
+            sounds such as doorbells and babies crying through vibrations<br>
+            It is intended to be worn on the wrist and it is rechargable, it can be used to experience music as it
+            includes an app for customisation.
+        </p>
+
+        <h1>Code Optimisations - 3/10/2023</h1>
+        <p>Ricardo simplified the concept code a bit and added a second LED strip, we will test this once we finish the
+            task 2 demonstration and we cut up the neo pixel into two LED strips.</p>
+
+        <h1>Feedback from Presentation - 5-10-2023</h1>
+        <p>Our group presented our concept along with related proejcts and the work we had done so far<br>
+            Here are some notes of feedback we recieved: <br><br>
+            Could use incremental average as well as the potentiometer for controlling the sensitivity of the
+            visualiser<br>
+            Our backpack design was a good idea<br>
+            Directional sound should be something we look into by using two microphones (one for each sleeve)<br>
+            Could use screws or soldering to attach wires instead of alligator clips<br>
+            Just focusing on sound level is better rather than trying to do sounds spectrum because that might be too
+            complex for the hardware and scope of the project<br><br>
+            Overall our group was really happy with our presentation and excited to continue development, we decided we
+            would looking into using a moving average to remove background sound in a sense and we would look into using
+            two microphones.
+        </p>
+
+        <h1>Moving Average</h1>
+
+        <p>
+            A moving average will be necessary for dynamically changing the gain/sensitivity of the sound level for the
+            LEDs/haptics.<br>
+            <br>
+            I did some research into the moving average formula<br>
+            <br>
+            (A1+A2+.......An)<br>
+            -----------------------<br>
+            number of items<br><br>
+
+            <a href="https://www.educba.com/moving-average-formula/">Moving Average</a>
+            <br>
+            <br>
+            I cleared my old program but kept a backup because I just want to focus on the sound value output not the
+            LED's or other functions.<br>
+            <br>
+            The above formula could work to get a nice smooth average.<br>
+            This could be done by making a total variable that constantly has itself and the new sound level added and
+            having
+            a counter variable.<br>
+            Then divide the total by count and this done make a smooth average however eventually the number gets very
+            hard to change or move because of the size and count, there needs to be some sort of limit.<br>
+            <br>
+            I experimented with having an array of 200 items max and adding to this array and making averages from it
+            till it reached 200 items then clearing it but adding what the average was as the first value however this
+            often lead to jumps after clearing the array.<br>
+            This is because the average number had no weight.<br>
+            <br>
+            If the average was around 60 and was slowly decreasing:<br>
+            The array might look like: 80,75,70,65,60,55,45,40 which makes an average of 60
+            But the array cleared because it got to big and it becomes:<br>
+            60<br>
+            Then the next number comes in at 35 making it:<br>
+            60,35<br>
+            The average of these which is an average of 47.5 which is a big jump from 60 and is not smooth.
+            You can see these jumps in the graph below:<br>
+        </p>
+        <img src="images/notSmoothGraph.png" alt="Not smooth graph">
+        <img src="images/notSmoothCode.png" alt="Not smooth code">
+        <p>
+            To fix this instead of clearing the array I will instead replace the oldest value in the array.<br>
+            So the array is constantly pulling in new data and removing the oldest, this will also ensure the array does
+            not get too big.<br>
+            <br>
+            The code is below on start I will set the arraySize which will be the max it can fill.<br>
+            I used the same code as before but removed the clearing of array.<br>
+            Once the array is full it starts to clear the old
+        </p>
+        <img src="images/replaceOld.png" alt="Code to remove old sound levels">
+        <p>
+            I then tested with different array sizes, the smaller the faster the average reacts, the bigger the
+            slower.<br>
+            The graphs below show me pausing and unpausing a YouTube video of static sound just to have a constant sound
+            level.<br>
+            One line is the sound level and the other is the moving average.<br><br>
+            Array size of 5:
+        </p>
+        <img src="images/arraySize5.png" alt="Array size of 5 graph">
+
+        <br>
+        <p>Array size of 50:</p>
+        <img src="images/arraySize50.png" alt="Array size of 50 graph">
+
+        <br>
+        <p>Array size of 200:</p>
+        <img src="images/arraySize200.png" alt="Array size of 200 graph">
+        <br>
+        <p>I then removed some refactored the code to remove duplications.</p>
+        <img src="images/removedDuplicationAverage.png" alt="Average code">
+
+        <p>I decided an array size of 200 will fit the best to allow a slower and smoother transition.<br>
+            Next I will use this average to remove the background/white noise from showing up on LED strip instead just
+            showing peaks like someone talking in a quiet room or a loud car honk in a city.
+        </p>
+        <h1>Noise Reduction - 11/10/2023</h1>
+        <p>I decided to test the noise/background sound reduction by simply subtracting the current sound value by the
+            moving
+            average and constrain it to be above 0. <br>
+            <br>
+            To test I used a 400hz constant sound video on YouTube and changed the volume of it, having the speaker near
+            the microphone. This would simulate a constant background sound that is changing in volume.<br>
+            <br>
+            I then spoke saying 'hello' to see if the microphone would pick my voice up.
+            <br>
+            The top graph is the raw sound level<br>
+            Second is the noise reduction output<br>
+            Third is the moving average array sum<br>
+            <br>
+            The peaks in the top two graphs are me speaking and as you can see even changing the volume up and down on
+            the 400hz video you can still here my voice and the 400hz video does not show much in the output once the
+            moving average adjusts.
+        </p>
+        <br>
+        <img src="images/noiseReductionGraphs.png" alt="Noise Reduction Graphs">
+        <br>
+        <p>Next is to add back the LED functions to use the new output.<br>
+            It was added at the start of the audioVisualisation function and I kept the potentiometer gain adjustment to
+            allow the user to change the overall sensitivity.<br>
+            <br>
+            Here is a video testing it with some background sound:
+        </p><br>
+        <iframe src="https://drive.google.com/file/d/1e4grBYcOjgN8Sozjz3eY82ukb-pD840u/preview" width="640" height="480"
+            allow="autoplay"></iframe>
+        <br>
+        <h1>Parts Research - 9/10/2023</h1>
+        <h2>Vibration Motors</h2>
+        <p>I did some research into different vibration motors we could use in the sleves of the bag.<br>
+            We decided a coin style would be perferable for size constraints instead of a pill style. <br>
+            I found two kinds we could purchase, a smaller and large version:<br>
+            <br>
+            <a href="https://littlebirdelectronics.com.au/products/vibrating-mini-motor-disc">Larger disc</a><br><br>
+            <a href="https://littlebirdelectronics.com.au/products/mini-vibration-motor-10-2-7mm">Smaller cheaper
+                disc</a>
+            <br><br>
+            Both work with 3.3v that the Micro:Bit can supply but due to costs and the fact we would be most likely
+            using 6 to 8 motors in total the cheaper the better.
+            <br>
+        </p>
+        <h2>Microphone</h2>
+        <p>
+            I found the MAX4466 microphone I did research into on ebay for a good price as we would need two for
+            directional sound. It also includes adjustable gain which may come in handy.<br> <br>
+            <a href="https://www.adafruit.com/product/1063">From Adafruit</a>
+        </p>
+        <h2>Buttons</h2>
+        <p>
+            Lastly, we were looking at potentially adding buttons for the colour scheme, turning on/off the LEDs, and
+            the brightness function.<br>
+            I found two options:<br>
+            <br>
+            <a href="https://littlebirdelectronics.com.au/products/mini-pushbutton-switch">Mini Square Style</a><br><br>
+            <a
+                href="https://littlebirdelectronics.com.au/products/colorful-square-tactile-button-switch-assortment-15-pack">Colourful
+                larger ones</a>
+        </p>
+        <h2>Cost Estimates</h2>
+        <p>
+            Cost estimate:<br>
+            2 Microphones: 19.1<br>
+            6 Buttons (cheapest): 3.06<br>
+            6 vibration motors: 10.50<br>
+            Shipping: 8<br>
+            Total : 40.66<br>
+            Per person: 13.55 aud<br>
+            <br>
+            We decided not to buy yet and have a final discussion in class about the exact products before we purchased.
+        </p>
+        <br>
+
+        <h1>User Interaction Diagram</h1>
+        <p>
+            I made a user interaction diagram to give myself and my time an overview of what the product achieves when
+            the user
+            interacts with it currently and what the concept should do in response.
+
+            This diagram makes it easier to see all of the different components working together and communicate without
+            any of the fabrication, exact data types or materials involved.
+        </p>
+        <img src="images/userinteractiondiagram.png" alt="User Interaction Diagram">
+
+        <h1>Testing a Vibration Motor - 12/10/2023</h1>
+        <p>
+            In our workshop we have decided for simplicity we will use two Micro:bits and use the on board microphones
+            as we have got the
+            software to work with the microphone and adding an external one adds complexity and its unknown if the
+            Micro:bit could handle another analog input and processing. <br>
+            We have been using my Micro:Bit and Jorja has a second Micro:Bit that we can use.
+            <br>
+            So with this in mind the Micro:bits will be attached to either side of the bag still with protection and we
+            should still be able to experiment with directional sound.<br>
+            <br>
+            So the device list is:<br>
+            -2 microbits<br>
+            -2 LED strips<br>
+            -6 vibration motors<br>
+            <br>
+            We cut the long LED Neopixel strip in half and the teacher, Toby helped us solder a connector onto
+            it as well as connectors for the vibration motors.<br><br>
+            <img src="images/solderingLEDs.jpg" alt="Soldering LEDs">
+            <br>
+            Toby also had a vibration motor and we discovered only 3.3v is enough to power not the digital pins so we
+            have no way of controlling it. This vibration motor was the exact same one we were going to purchase but
+            Toby let us borrow the 6 we needed.<br>
+            <br>
+            So we need a way to control the motors by one of the digital on/off pins on the Micro:bit<br>
+        </p>
+        <img src="images/npnTransistor.png" alt="NPN Transistor"><br>
+        <p>
+            So we need an NPN transistor to act as on-off switch for the 3.3v flow going to the vibration motor along
+            with a
+            diode to stop any current coming back the wrong way when the vibration motors stop.<br>
+            The NPN allows us to control the flow of current using one of the controllable digital pins on the
+            Micro:bit.
+            <br>
+            We also discussed our issue with the USB battery pack turning off after a while because the Micro:Bit does
+            not draw enough power
+            for the smart battery pack to think anything is connected thus we are going to purchase a USB Y splitter and
+            plug both Micro:bits into one port of the battery pack to see if it draws enough power, if not Toby
+            has low cut off battery packs. After class I ended up buying the Y splitter off eBay<br>
+            <br>
+            Toby also had smaller break out boards we could use instead of my larger one:
+        </p>
+        <img src="images/smallerBreakoutBoards.jpg" alt="Smaller Breakout Board"><br>
+        <p>
+            This will help save some size.<br>
+            <br>
+            It was now time to see if we could program and control the vibration motors, Toby gave me an understanding
+            of how we would wire them.<br>
+            <br>
+            So we will be controlling 3 vibration motors per Micro:bit so 3 vibration motors per bag sleeve.<br>
+            So we will need to send 3.3v and ground to each NPN and wire a digital pin from the Micro:bit to control
+            it.<br>
+            The motors will then be wired in but with the diode in between to block any current going the wrong way.<br>
+            Toby and I wired one breadboard to act as one completed Micro:Bit, a second one will be made later.
+        </p>
+        <img src="images/breadboardWiring1.jpg" alt="Bread Board Wiring"><br>
+        <img src="images/breadboardWiring2.jpg" alt="Bread Board Wiring"><br>
+
+        <p>
+            As you can see the wiring is complex but it does work in testing<br>
+            We made a small program to test if there was enough power for the LED strip and the three vibration motors
+            at the same time:
+        </p>
+        <iframe src="https://drive.google.com/file/d/1yxFmy_S-YYvFPCq2z5rhB-aLrGUyqSv4/preview" width="640" height="480"
+            allow="autoplay"></iframe>
+        <img src="images/powerTest.png" alt="Coding for testing power limits"><br>
+
+        <p>
+            Also the pins have been finalised for the Micro:Bits:<br>
+            <br>
+            Pin 0 - LED strip (analog)<br>
+            Pin 1 - Potentiometer (analog)<br>
+            Pin 2,8,9 - vibration motors (digital)<br>
+            <br>
+            This will ensure none of the pins interfere with the screens of buttons on the Micro:Bit (pins 3- 7) and
+            have the correct format (analog or digital)<br>
+            <br>
+            Micro:Bit pin layout:
+        </p>
+        <img src="images/microbitPins.png" alt="Micro:Bit Pins"><br>
+
+        <h1>Fabrication Diagram - 13/10/2023</h1>
+        <p>
+            Ricardo made a nice diagram of where things can fit in the bag and we discussed where we could put the
+            Micro:Bit and so far the only feasible option is lower down on the side of the bag because our bag we are
+            using has zips that would get in the way. We all discussed the placement and decided this was good for now
+            and in the next workshop we will use the actual bag and make measurements.
+        </p>
+        <img src="images/fabricationDiagram.png" alt="Fabrication Diagram"><br>
+
+        <h1>Final Code - 16/10/2023</h1>
+        <p>
+            Ricardo made some optimizations to the moving average code and made the code match the length of the LED
+            strip (13).<br>
+            <br>
+            I added the vibration aspects so the 2nd, 3rd and 4th LED sections light up and the corresponding vibrations
+            motors also turn on.<br>
+            For example if in the 3rd sections both the first and second motors turn on.<br>
+            I had to modify the code to an if else statement because sometimes the vibration motors would get stuck on
+            so an else statement ensures it turns off.<br>
+            <br>
+            I also found a weird glitch when all LEDS are lit up the last one flickers. I believe this has something to
+            do with my notInRange variable, even with 0 LEDs to turn off it still counts as one light. A work around was
+            to
+            create a LED strip range variable that is one larger that what we have to so it cannot affect any visible
+            LED
+            strips.<br>
+            <br>
+            The code should now be ready for duplication on the second Micro:bit and used when we re-wire.<br>
+            <br>
+            Ricardo then made some further optimizations to reduce the size of the code and it was complete.<br><br>
+            <a href="https://makecode.microbit.org/_i5fUXzgcAV2j">Here is a link to the final code shared on
+                makecode</a>
+        </p>
+
+        <h1>Duplication - 19/10/2023</h1>
+        <p>
+            We discussed that we are just going to put the breadboard wiring into a nice box inside of the bag for
+            protection.<br>
+            <br>
+            Tobey gave us another breadboard and the final needed components including, NPNs and soldering for the rest
+            of the vibration motors.<br>
+            I completely duplicated the wiring to a second board. For the potentiometer I simply added an extra reading
+            for pin
+            from the output pin and connected it in place of the potentiometer on the second breadboard. This means both
+            Micro:Bits
+            could read the same potentiometer data.<br><br>
+        </p>
+        <img src="images/bothBreadboards.jpg" alt="Both Breadboards Completed"><br>
+        <p>
+            We laid out and measured where the components will sit.<br>
+            We created custom length wires for the vibration motors, three lengths for the different positions where
+            vibration motors are going to sit in the sleves of the bag.<br>
+            This would make it much easier to fit and wire instead of using pin extensions which could easily fall
+            apart.<br><br>
+        </p>
+        <img src="images/vibrationMotorWiring.jpg" alt="Vibration Motor Wiring"><br>
+        <p>
+            We didn't quite get all of the vibration motors finished but we did finish the LED strips to test them out
+            as you can see:
+        </p>
+        <iframe src="https://drive.google.com/file/d/1QHHZTaCqy4-4GVTLh3RhCFTv1knRaq9u/preview" width="640" height="480"
+            allow="autoplay"></iframe><br>
+
+        <h1>Final Wiring Diagram - 20/10/2023</h1>
+        <p>
+            I made a wiring diagram for documentation purposes and if anyone wanted to replicate it.<br>
+            (Note some pins on the diagram are different due to not being supported so refer to the pins used in the
+            code of mentioned in when testing the vibration motors)<br>
+            I used tinkerCad to make it:
+        </p>
+        <img src="images/DES222 Wiring DiagramCrop.png" alt="Wiring Diagram"><br>
 
 
+        <h1>USB Y Splitter - 21/10/2023</h1>
+        <p>
+            The USB Y Splitter finally arrived and I connected both Micro:Bits and connected it to the USB power bank
+            and I left it on for 10 minutes and did not turn off so it was a success, there is enough power draw.<br>
+            The other USB port on the power bank was left for the user of the product to be able to plug in there phone
+            for charging.<br>
+        </p>
+        <img src="images/ySplitter.jpg" alt="USB Y Splitter"><br>
+
+        <h1>Final Development</h1>
+        <p>
+            Jorja made a really nice wooden box for us to put the electronics inside of the bag which she also painted
+            black.<br>
+            It has two holes either side for wires to come out.<br>
+            This will house the bread boards.<br>
+        </p>
+        <img src="images/jorjaBox1.jpg" alt="Wooden Box"><br>
+        <img src="images/jorjaBox2.jpg" alt="Wooden Box"><br>
+        <img src="images/jorjaBox3.jpg" alt="Wooden Box"><br>
+        <p>
+            Ricardo soldered the last vibration motors we needed.<br>
+
+            I fixed a bug in our code so all 13 LED's lit up instead of just 12.<br>
+            I slowly put the bread boards inside of Jorja's box and it fit perfectly.<br>
+        </p>
+
+        <img src="images/breadBoardsInBox.jpg" alt="Breadboards in Box"><br>
+        <p>
+            Jorja worked on the holes and the outer covers for the LED strips.<br>
+
+            Next we started feeding the LED strips into the bag, it was very stressful and hard to watch, hoping nothing
+            breaks. Jorja did most
+            of the work pushing the LED strip slowly into the sleeves. We did the same for the vibration motors with
+            their new soldered on longer leads. There were 3 different lengths and 2 motors per length. These different
+            lengths allowed the vibration motors to sit at different heights on the sleeves. <br>
+        </p>
+        <img src="images/bagWiring.jpg" alt="Wiring in Bag"><br>
+        <img src="images/jorjaWiring.jpg" alt="Wiring in Bag"><br>
+
+        <p>
+            Once they were all inside we put the box further into the bag, mounted the battery, potentiometer and Jorja
+            attached the Micro:bits to the inside, sides of the bag like we planned in the fabrication diagram. It took
+            lots of fiddling around to get everything
+            in the right spot.
+        </p>
+
+        <img src="images/boxInBag.jpg" alt="All Components in Bag"><br>
+
+        <p>
+            But once we had it in, we tested it on each other.<br>
+            There were quite a few different reactions, some said it felt like their phone was vibrating and the
+            vibrations were really strong.<br>
+            <br>
+        </p>
+        <iframe src="https://drive.google.com/file/d/1OXXBGTO7cwqizJe4y1q1sVxANq0rbOIU/preview" width="640" height="480"
+            allow="autoplay"></iframe>
+        <br>
+        <p>
+            Overall we were quite happy having it all together and working, we did the recording for the demonstration
+            video showing off the different features.<br>
+        </p>
+
+        <p>PUT IN FINAL VIDEOOOO</p>
+
+        <br>
+        <h1>Reflection</h1>
+        <h2>Future improvement:</h2>
+        <p>
+            -Use a perfboard or printed circuit to reduce the size of the wired components<br><br>
+            -Use direct soldering for more component such as the vibration motors and LED strips for more
+            stability<br><br>
+            -Use waterproof external microphones that can be placed on the outside of the bag for better pickup than the
+            Micro:Bits and reduce bag rubbing to be picked up in the microphone<br><br>
+            -Add buttons and move potentiometer to the sleves of the bag to control the brightness, gain and other
+            functions easily on the sleeve for better access<br><br>
+            <br><br>
+        <h2>Team Contributions</h2>
+        I am really happy with the team we did an amazing job working together.<br><br><br>
+        Jorja - hands on person with fabrics and the bag<br><br>
+        Ricardo - helped optimise the code, did soldering, worked on scripts, PowerPoints and videos<br><br>
+        Kaleb - made the base code and did wiring, worked on scripts, PowerPoints and videos<br><br><br>
+        All contributed to the different features and ideas of the product
+        </p><br>
+
+        <h2>Double Diamond Method</h2>
+        <img src="images/doubleDiamond.png" alt="Double Diamond Methodology">
+        <p>
+            <a href="https://www.designcouncil.org.uk/our-resources/framework-for-innovation/">View the Double Diamond Methodology by the Design Council</a><br><br>
+            During the creation of our concept I felt we really stuck to the double diamod methodology.<br><br><br>
+            -We brainstormed all of our crazy and extreme ideas that we weren't sure we could make.<br><br>
+            -We filtered down to a small concept we could create a present that only included visualing using the LEDs<br><br>
+            -Then we expanded development looking at external microphones, buttons, and perfboards<br><br>
+            -Once again we focused on what we could make and delievered a final concept that had a moving average, directional sound and vibration motors.<br><br><br>
+            This methodology is a really good guide to help ensure you dream big but deliver on what you can make based on constraints.
+        </p><br>
+
+        <h2>Summary</h2>
+
+        <p>
+            Overall, I am very happy with what we created and how the project turned out. There is definitely some room
+            for improvement as listed above, especially regarding stability and size. However, this is just a prototype
+            and for what it is and what it was trying to achieve I believe it was a success.<br>
+            <br>
+            It successfully translates sounds around the user into a visual and haptic experience. It uses a moving
+            average calculation to reduce the pickup of ambient noise and only displays louder sounds such as someone
+            talking around you. It still features a manual gain controller in the form of a potentiometer which we felt
+            was important to keep for now as a manual override. We even incorporated fun features for the user to feel
+            more at home with different colour schemes, the ability to change the brightness and turn the LEDs off and
+            on which may be useful if you don't want to stand out.<br>
+            <br>
+            Jorja, the original creator of the idea that came to fruition due to her own needs seemed very compelled by
+            this first prototype. It is very hard for me to judge how useful it is as I have no need for the product
+            unless I put on
+            headphones. But it seemed a success and could definitely be further developed and turned into a product for
+            hearing-impaired people around the world who are looking for a product that can improve their safety and
+            awareness of their surroundings.<br>
+            <br>
+        </p>
+        <img src="images/bagVisualiser.png" alt="Final Product"><br>
+        <p>
+            I learnt a lot from building this project. Creating prototype wearables is very difficult due to the
+            restricted form factor and the size of the components. Positioning and wiring components is also very
+            difficult as you need to consider the best route for wiring and how you are going to connect the components.
+            You also need to consider the durability as it would be used in a day-to-day manner, be rubbed against
+            walls, dropped and caught in the weather.<br>
+            <br>
+            The code was very fun to make and I learnt a lot about using the main thread on a Micro:Bit ensuring a
+            continuous loop continued even during user inputs. The moving average was really fun to learn about and
+            experiment with, took a lot of tinkering but I eventually got it to a state I was happy with.<br>
+            <br>
+            Thank you for reading!
+        </p>
     </div>
 </body>
-
-
 </html>

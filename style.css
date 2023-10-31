@@ -35,4 +35,6 @@ iframe{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 736px;
+    height: 414px;
 }
