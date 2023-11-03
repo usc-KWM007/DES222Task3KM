@@ -24,7 +24,7 @@
 
         <img src="images/Hero Shot.png" alt="The Haptualization Bag">
 
-        <p>PUT IN FINAL VIDEOOOO</p>
+        <p>PUT IN FINAL VIDEOOOOs</p>
 
         <h2>Table of Contents:</h2>
         <h3>Team</h3>
@@ -103,7 +103,7 @@
         </p>
         <p>Because there are so many situations where hearing-impaired individuals struggle to hear their environments,
             we intend to change the lack of auditory awareness to helpful alternatives through more prominent senses for
-            those who have hearing impairments or wear earphones so they can *visualise and feel *the sounds of their
+            those who have hearing impairments or wear earphones so they can *visualise and feel* the sounds of their
             environment to improve their overall safety and quality of life. To do this, we will engage with the user's
             relationship with their other senses such as sight and touch.
         </p>
@@ -178,7 +178,7 @@
         </p>
 
         <h1>Potential Micro Controller Options - 21/9/2023</h1>
-        <p>Discussed with Toby (workshop lecturer) about the our different options for Micro Controlers:<br>
+        <p>Discussed with Toby (workshop lecturer) about the our different options for Micro-Controllers:<br>
             <br>
             Teensy:
             <a href="https://www.pjrc.com/teensy/">USB development board, can use Arduino software</a><br>
@@ -204,7 +204,7 @@
             Rapid Prototyping - get a quick idea on what we want to make and how the user would use it. <br><br>
 
             Borrowed a Neopixel LED strip to work on a concept to be used in the task 2 presentation.
-            During the workshop we tested out the neopixel with the Micro:Bit.
+            During the workshop we tested out the Neopixel with the Micro:Bit.
             Got individual LED's to light up and react to the built in Micro:Bit's microphone.
             However we were having issues with smoothness and the volume.
             The video below was taken by Jorja.
@@ -240,7 +240,7 @@
         <h1>Concept for Presentation</h1>
         <p>
             Materials:<br>
-            1 NeoPixel LED stip (26 LEDS)<br>
+            1 NeoPixel LED strip (26 LEDs)<br>
             Micro:Bit<br>
             Potentiometer<br>
             <br>
@@ -251,7 +251,7 @@
         From testing 130 sound level is a loud clap when serial writing the sound level
         <img src="images/testingMicrophone.png" alt="Testing sound levels">
         <p>
-            So we have 26 leds that need to display up to a value of 130 <br>
+            So we have 26 LEDs that need to display up to a value of 130 <br>
             So 130/26 = 5 <br>
             So every 5 sound levels a new LED should light up<br>
             <br>
@@ -285,7 +285,7 @@
             Now we want to add the optional gain affect using the potentiometer to in easy terms change the sensitivity
             of the LED's by altering the soundConversion
         </p>
-        <img src="images/alteratingSoundConversion.png" alt="Alterating Sound Conversion">
+        <img src="images/alteratingSoundConversion.png" alt="Altering  Sound Conversion">
 
         <p>
             Once again serial writing from pin 1 (potentiometer) gives as values from 0 to 1020:
@@ -293,7 +293,7 @@
         <img src="images/potentiometerRange.png" alt="Potentiometer Range">
 
         <p>
-            However it was a bit more stable using a seperate ground and 3.3v pin on the breakout board than sharing
+            However it was a bit more stable using a separate ground and 3.3v pin on the breakout board than sharing
             with the LED strip, this may be due to interference so for now they are kept separate.<br>
             <br>
             To convert:<br>
@@ -341,7 +341,7 @@
             This was a big more complicated and required more computing.<br>
             Basically 4 colour ranges needed to be created for each colour
             Then if for example the value was 9, it would end up in the second range (yellow).<br>
-            So we need to select the amount of LED's that the 9 value affects between the LEDS 6 and 12.<br>
+            So we need to select the amount of LED's that the 9 value affects between the LEDs 6 and 12.<br>
             And because the NeoPixel library you cannot select between LED's 6 and 9 you need to calculate how many
             LED's into the range it is. So 9-6 = 3 so we can create a range from 6 with 3 LED's.<br>
             Then show that range as yellow and then show the green range as well.<br>
@@ -448,7 +448,7 @@
             I decided the built in small AAA battery pack might not last very long when powering the LED's.<br>
             I did some research into larger battery packs such as this <a
                 href="https://core-electronics.com.au/monk-makes-power-for-micro-bit-45192.html">product</a><br>
-            How every a much simplier solution was using a battery pack that I already owned and it has two USB ports if
+            How every a much simpler solution was using a battery pack that I already owned and it has two USB ports if
             we need to use two Micro:Bits</p>
         <img src="images/batteryPack.jpg" alt="Battery Pack">
 
@@ -459,9 +459,9 @@
         <img src="images/soundShirt.png" alt="Sound Shirt">
         <br>
         <a href="https://cutecircuit.com/soundshirt/">View the Sound Shirt</a>
-        <p>The sound shirt is intented for people with hearing impairments to experience music better<br>
+        <p>The sound shirt is intended for people with hearing impairments to experience music better<br>
             It uses many haptics and LED's to create an experience from music in a full shirt.<br>
-            It is rechargable, has a mobile app fror controlling the haptics and playing pre-recorded music.
+            It is rechargeable , has a mobile app for controlling the haptics and playing pre-recorded music.
         </p>
         <br>
 
@@ -470,7 +470,7 @@
         <br>
         <a href="https://www.instructables.com/Sound-Reactive-LED-Equalizer-Skirt">View the Wearable Sound Reactive
             Equalizer Skirt</a>
-        <p>The Wearable Sound Reactive Equalizer Skirt is intented to as a fasion piece to react to the sound of the
+        <p>The Wearable Sound Reactive Equalizer Skirt is intended to as a fashion piece to react to the sound of the
             environment<br>
             It uses a FLORA micro controller, MAX4466 microphone, many LED's and a battery pack.<br>
             The LED strip was dismantled and individual LED diodes were inserted into the skirt to create a dotted
@@ -484,7 +484,7 @@
         <a href="https://neosensory.com/product/buzz-otp/">View the Neosensory Wrist Band</a>
         <p>The Neosensory Wrist Band is intended for hearing-impaired people to help them dynamically feel important
             sounds such as doorbells and babies crying through vibrations<br>
-            It is intended to be worn on the wrist and it is rechargable, it can be used to experience music as it
+            It is intended to be worn on the wrist and it is rechargeable, it can be used to experience music as it
             includes an app for customisation.
         </p>
 
@@ -493,8 +493,8 @@
             task 2 demonstration and we cut up the neo pixel into two LED strips.</p>
 
         <h1>Feedback from Presentation - 5-10-2023</h1>
-        <p>Our group presented our concept along with related proejcts and the work we had done so far<br>
-            Here are some notes of feedback we recieved: <br><br>
+        <p>Our group presented our concept along with related projects and the work we had done so far<br>
+            Here are some notes of feedback we received: <br><br>
             Could use incremental average as well as the potentiometer for controlling the sensitivity of the
             visualiser<br>
             Our backpack design was a good idea<br>
@@ -615,8 +615,8 @@
         <br>
         <h1>Parts Research - 9/10/2023</h1>
         <h2>Vibration Motors</h2>
-        <p>I did some research into different vibration motors we could use in the sleves of the bag.<br>
-            We decided a coin style would be perferable for size constraints instead of a pill style. <br>
+        <p>I did some research into different vibration motors we could use in the sleeves of the bag.<br>
+            We decided a coin style would be preferable for size constraints instead of a pill style. <br>
             I found two kinds we could purchase, a smaller and large version:<br>
             <br>
             <a href="https://littlebirdelectronics.com.au/products/vibrating-mini-motor-disc">Larger disc</a><br><br>
@@ -681,7 +681,7 @@
             should still be able to experiment with directional sound.<br>
             <br>
             So the device list is:<br>
-            -2 microbits<br>
+            -2 Micro:Bits<br>
             -2 LED strips<br>
             -6 vibration motors<br>
             <br>
@@ -770,7 +770,7 @@
             I had to modify the code to an if else statement because sometimes the vibration motors would get stuck on
             so an else statement ensures it turns off.<br>
             <br>
-            I also found a weird glitch when all LEDS are lit up the last one flickers. I believe this has something to
+            I also found a weird glitch when all LEDs are lit up the last one flickers. I believe this has something to
             do with my notInRange variable, even with 0 LEDs to turn off it still counts as one light. A work around was
             to
             create a LED strip range variable that is one larger that what we have to so it cannot affect any visible
@@ -801,7 +801,7 @@
         <p>
             We laid out and measured where the components will sit.<br>
             We created custom length wires for the 6 vibration motors, 2 for each length.<br> 
-            There were three lengths for the different positions where vibration motors are going to sit in the sleves of the bag.<br><br>
+            There were three lengths for the different positions where vibration motors are going to sit in the sleeves of the bag.<br><br>
             The lengths were as followed:<br>
             50cm<br>
             60cm<br>
@@ -900,7 +900,7 @@
             stability<br><br>
             -Use waterproof external microphones that can be placed on the outside of the bag for better pickup than the
             Micro:Bits and reduce bag rubbing to be picked up in the microphone<br><br>
-            -Add buttons and move potentiometer to the sleves of the bag to control the brightness, gain and other
+            -Add buttons and move potentiometer to the sleeves of the bag to control the brightness, gain and other
             functions easily on the sleeve for better access<br><br>
             <br><br>
         <h2>Team Contributions</h2>
@@ -915,11 +915,11 @@
         <img src="images/doubleDiamond.png" alt="Double Diamond Methodology">
         <p>
             <a href="https://www.designcouncil.org.uk/our-resources/framework-for-innovation/">View the Double Diamond Methodology by the Design Council</a><br><br>
-            During the creation of our concept I felt we really stuck to the double diamod methodology.<br><br><br>
+            During the creation of our concept I felt we really stuck to the double diamond methodology.<br><br><br>
             -We brainstormed all of our crazy and extreme ideas that we weren't sure we could make.<br><br>
-            -We filtered down to a small concept we could create a present that only included visualing using the LEDs<br><br>
+            -We filtered down to a small concept we could create a present that only included visualising using the LEDs<br><br>
             -Then we expanded development looking at external microphones, buttons, and perfboards<br><br>
-            -Once again we focused on what we could make and delievered a final concept that had a moving average, directional sound and vibration motors.<br><br><br>
+            -Once again we focused on what we could make and delivered a final concept that had a moving average, directional sound and vibration motors.<br><br><br>
             This methodology is a really good guide to help ensure you dream big but deliver on what you can make based on constraints.
         </p><br>
 
