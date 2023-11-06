@@ -79,8 +79,8 @@
 
         <h1>Raw Brainstorming</h1>
         <p>
-            Some raw brainstorming from our first workshop.
-            Haptic feedbacks to sounds for deaf people.<br>
+            Some raw brainstorming from our first workshop.<br>
+            Haptic feedbacks based on sounds for deaf people.<br>
             Could react to different frequencies like bomb alarms.<br>
             <br>
             The main idea, react to sound and displaying as visual and sensory (haptics).<br>
@@ -91,7 +91,7 @@
             Backpack that has LED strips to visualise sound to let people know of sounds near them. <br>
             <br>
             We expanded from just deaf people to also people who have other hearing impairments and for people that have
-            headphones in as this is a current modern day issue of people not listening to their surroundings.
+            headphones on as this is a current modern day issue of people not listening to their surroundings.
 
         </p>
 
@@ -99,7 +99,7 @@
 
         <h1>Design Intent</h1>
         <p>
-            Myself and Ricardo both created mock brainstorms that we felt encompassed what we are trying to achieve, we
+            Ricardo and I both created mock design intents that we felt encompassed what we are trying to achieve, we
             then combined and ended up with:
         </p>
         <p>Because there are so many situations where hearing-impaired individuals struggle to hear their environments,
@@ -114,18 +114,18 @@
         <p>
             I found some good general sources to start looking at for what we were trying to achieve <br>
             <br>
-            <a href="https://www.instructables.com/CalmCuff/">Vibration motors using Micro:bit</a><br>
+            <a href="https://www.instructables.com/CalmCuff/">Vibration motors using Micro:Bit</a><br>
             <br>
             <a href="https://littlebirdelectronics.com.au/products/vibrating-mini-motor-disc">Where you can buy the mini
                 vibrating motors</a><br>
             <br>
             <a href="https://www.hackster.io/aams86/halloween-micro-bit-3fe7e3">Addressable LEDs and buzzer motor with
-                Micro:bit</a><br>
+                Micro:Bit</a><br>
             <br>
-            <a href="https://www.instructables.com/MicroBit-RGB-LEDs/">LED strip with Micro:bit</a><br>
+            <a href="https://www.instructables.com/MicroBit-RGB-LEDs/">LED strip with Micro:Bit</a><br>
             <br>
             <a href="https://diyodemag.com/projects/make_it_glow_glowbit_microbit_projects">Using GlowBit and
-                Micro:bit</a><br>
+                Micro:Bit</a><br>
         </p>
 
         <h1>Design Concepts - 16/9/2023</h1>
@@ -147,9 +147,9 @@
         <img src="images/designConcept7.png" alt="Design Concept">
 
         <h1>Pseudocode</h1>
-        <p>I decided to make some Pseudocode to get a rough idea of how the Micro:bit's could would function<br>
+        <p>I decided to make some Pseudocode to get a rough idea of how the Micro:Bit's could function.<br>
             <br>
-            I also noted if the main thread is too overloaded for one Micro:bit we could split to two, one for each LED
+            I also noted if the main thread is too overloaded for one Micro:Bit we could split to two, one for each LED
             strip, Microphone and vibration motors (like one per shoulder strap).<br>
             We decided we could use two microphones to experiment with directional sound for users to be able to tell if
             the sound is more to their left or right based on which LED lights are lit up more of which vibration motors
@@ -162,8 +162,8 @@
         <p>Once again responding to Ricardo's concepts and my own Pseudocode I made a wiring diagram using TinkerCad
             which is a nice website for creating diagrams and visualising circuits, it even has lots of Micro:Bit
             components.<br>
-            The only I could one I could not find was a Microphone so I used a different sensor that looked similar and
-            3 wires like the Microphones we may use. I wired it up using a Micro:Bit breakout board and added notes on
+            The only I could one I could not find was a microphone so I used a different sensor that looked similar and
+            3 wires like the microphones we may use. I wired it up using a Micro:Bit breakout board and added notes on
             what each component is.
             I decided to wire the vibration motors in series to save a lot of extra wiring (however it is unconfirmed if
             this would work more research is required).
@@ -342,11 +342,11 @@
         <img src="images/colourRange.png" alt="Colour Range Calculation">
 
         <p>
-            This does work however to reduce flicker it would be nice if each the lower levels had their own colour
-            instead of the entire lit up led's change colour.<br>
+            This does work however to reduce flicker it would be nice if each of the lower levels had their own colour
+            instead of the entire strip lit up led's change colour.<br>
             <br>
             This was a big more complicated and required more computing.<br>
-            Basically 4 colour ranges needed to be created for each colour
+            Basically 4 colour ranges needed to be created for each colour<br>
             Then if for example the value was 9, it would end up in the second range (yellow).<br>
             So we need to select the amount of LED's that the 9 value affects between the LEDs 6 and 12.<br>
             And because the NeoPixel library you cannot select between LED's 6 and 9 you need to calculate how many
@@ -369,7 +369,7 @@
 
         <h1>Further Development on Concept - 23/9/2023</h1>
 
-        <p>Adding different options for the user, change colour scheme using Micro:Bit A button
+        <p>Adding different options for the user, change colour scheme using Micro:Bit A button<br>
             This will be achieved by setting variables for the colours in the scheme.
             Also change brightness using Micro:Bit B button
             <br><br>
@@ -381,7 +381,7 @@
         <p>
             Next to add different colours schemes and the if statement which will be a function and a trigger will be
             used.<br>
-            So each time the button A is pressed the colour scheme index changes the if statement will set a new colour
+            So each time the button A is pressed the colour scheme index changes and the if statement will set a new colour
             scheme.<br>
             The exact same process was done for the brightness. Both are these functions are called from the main
             thread using triggers:
@@ -412,7 +412,7 @@
             (The completely off brightness did not work as expected so a separate function could be created to turn off
             LEDS by displaying black in the future)<br>
             <br>
-            These added features adds so customisation for the user and personalisation.<br>
+            These added features adds some customisation for the user and personalisation.<br>
             The brightness may help in different lighting scenarios for example at night time you may want your LED's to
             be dimmer<br>
             The colour scheme may help colour blind people or people who just prefer different colour schemes<br>
@@ -450,7 +450,7 @@
         <a href="https://www.youtube.com/watch?v=bMs5J4bJOD0">I later found a youtube tutorial on using it</a>
 
         <h1>Power Options - 25/9/2023</h1>
-        <p>I did some research into our different options for powering the Micro:bit and inturn the LED's and other
+        <p>I did some research into our different options for powering the Micro:Bit and inturn the LED's and other
             components.<br>
             I decided the built in small AAA battery pack might not last very long when powering the LED's.<br>
             I did some research into larger battery packs such as this <a
@@ -468,7 +468,7 @@
         <a href="https://cutecircuit.com/soundshirt/">View the Sound Shirt</a>
         <p>The sound shirt is intended for people with hearing impairments to experience music better<br>
             It uses many haptics and LED's to create an experience from music in a full shirt.<br>
-            It is rechargeable , has a mobile app for controlling the haptics and playing pre-recorded music.
+            It is rechargeable, has a mobile app for controlling the haptics and playing pre-recorded music.
         </p>
         <br>
 
@@ -502,14 +502,14 @@
         <h1>Feedback from Presentation - 5-10-2023</h1>
         <p>Our group presented our concept along with related projects and the work we had done so far<br>
             Here are some notes of feedback we received: <br><br>
-            Could use incremental average as well as the potentiometer for controlling the sensitivity of the
+            Could use incremental/moving average as well as the potentiometer for controlling the sensitivity of the
             visualiser<br>
             Our backpack design was a good idea<br>
             Directional sound should be something we look into by using two microphones (one for each sleeve)<br>
             Could use screws or soldering to attach wires instead of alligator clips<br>
             Just focusing on sound level is better rather than trying to do sounds spectrum because that might be too
             complex for the hardware and scope of the project<br><br>
-            Overall our group was really happy with our presentation and excited to continue development, we decided we
+            Overall our group was really happy with our presentation and excited to continue development, I decided I
             would looking into using a moving average to remove background sound in a sense and we would look into using
             two microphones.
         </p>
@@ -536,13 +536,13 @@
             This could be done by making a total variable that constantly has itself and the new sound level added and
             having
             a counter variable.<br>
-            Then divide the total by count and this done make a smooth average however eventually the number gets very
+            Then divide the total by count to make a smooth average however eventually the number gets very
             hard to change or move because of the size and count, there needs to be some sort of limit.<br>
             <br>
-            I experimented with having an array of 200 items max and adding to this array and making averages from it
-            till it reached 200 items then clearing it but adding what the average was as the first value however this
+            I experimented with having an array of 200 elements max and adding to this array and making averages from it
+            till it reached 200 elements then clearing it but adding what the average was as the first value. However this
             often lead to jumps after clearing the array.<br>
-            This is because the average number had no weight.<br>
+            This is because the average number from the previous array had no weight.<br>
             <br>
             If the average was around 60 and was slowly decreasing:<br>
             The array might look like: 80,75,70,65,60,55,45,40 which makes an average of 60
@@ -587,7 +587,7 @@
         <img src="images/removedDuplicationAverage.png" alt="Average code">
 
         <p>I decided an array size of 200 will fit the best to allow a slower and smoother transition.<br>
-            Next I will use this average to remove the background/white noise from showing up on LED strip instead just
+            Next I will use this average to remove the background/white noise from showing up on the LED strip instead just
             showing peaks like someone talking in a quiet room or a loud car honk in a city.
         </p>
         <h1>Noise Reduction - 11/10/2023</h1>
@@ -598,7 +598,7 @@
             To test I used a 400hz constant sound video on YouTube and changed the volume of it, having the speaker near
             the microphone. This would simulate a constant background sound that is changing in volume.<br>
             <br>
-            I then spoke saying 'hello' to see if the microphone would pick my voice up.
+            I then spoke saying 'hello' repeatedly to see if the microphone would pick my voice up.
             <br>
             The top graph is the raw sound level<br>
             Second is the noise reduction output<br>
@@ -667,7 +667,7 @@
 
         <h1>User Interaction Diagram</h1>
         <p>
-            I made a user interaction diagram to give myself and my time an overview of what the product achieves when
+            I made a user interaction diagram to give myself and my team an overview of what the product achieves when
             the user
             interacts with it currently and what the concept should do in response.
 
@@ -678,19 +678,20 @@
 
         <h1>Testing a Vibration Motor - 12/10/2023</h1>
         <p>
-            In our workshop we have decided for simplicity we will use two Micro:bits and use the on board microphones
+            In our workshop we have decided for simplicity we will use two Micro:Bits and use the on board microphones
             as we have got the
             software to work with the microphone and adding an external one adds complexity and its unknown if the
-            Micro:bit could handle another analog input and processing. <br>
+            Micro:Bit could handle another analog input and processing. <br>
             We have been using my Micro:Bit and Jorja has a second Micro:Bit that we can use.
             <br>
-            So with this in mind the Micro:bits will be attached to either side of the bag still with protection and we
+            So with this in mind the Micro:Bits will be attached to either side of the bag still with protection and we
             should still be able to experiment with directional sound.<br>
             <br>
             So the device list is:<br>
             -2 Micro:Bits<br>
             -2 LED strips<br>
             -6 vibration motors<br>
+            -1 potentiometer<br>
             <br>
             We cut the long LED Neopixel strip in half and the teacher, Toby helped us solder a connector onto
             it as well as connectors for the vibration motors.<br><br>
@@ -700,7 +701,7 @@
             have no way of controlling it. This vibration motor was the exact same one we were going to purchase but
             Toby let us borrow the 6 we needed.<br>
             <br>
-            So we need a way to control the motors by one of the digital on/off pins on the Micro:bit<br>
+            So we need a way to control the motors by one of the digital on/off pins on the Micro:Bit<br>
         </p>
         <img src="images/npnTransistor.png" alt="NPN Transistor"><br>
         <p>
@@ -708,12 +709,12 @@
             with a
             diode to stop any current coming back the wrong way when the vibration motors stop.<br>
             The NPN allows us to control the flow of current using one of the controllable digital pins on the
-            Micro:bit.
+            Micro:Bit.
             <br>
             We also discussed our issue with the USB battery pack turning off after a while because the Micro:Bit does
             not draw enough power
             for the smart battery pack to think anything is connected thus we are going to purchase a USB Y splitter and
-            plug both Micro:bits into one port of the battery pack to see if it draws enough power, if not Toby
+            plug both Micro:Bits into one port of the battery pack to see if it draws enough power, if not Toby
             has low cut off battery packs. After class I ended up buying the Y splitter off eBay<br>
             <br>
             Toby also had smaller break out boards we could use instead of my larger one:
@@ -725,8 +726,8 @@
             It was now time to see if we could program and control the vibration motors, Toby gave me an understanding
             of how we would wire them.<br>
             <br>
-            So we will be controlling 3 vibration motors per Micro:bit so 3 vibration motors per bag sleeve.<br>
-            So we will need to send 3.3v and ground to each NPN and wire a digital pin from the Micro:bit to control
+            So we will be controlling 3 vibration motors per Micro:Bit so 3 vibration motors per bag sleeve.<br>
+            So we will need to send 3.3v and ground to each NPN and wire a digital pin from the Micro:Bit to control
             it.<br>
             The motors will then be wired in but with the diode in between to block any current going the wrong way.<br>
             Toby and I wired one breadboard to act as one completed Micro:Bit, a second one will be made later.
@@ -784,9 +785,9 @@
             LED
             strips.<br>
             <br>
-            The code should now be ready for duplication on the second Micro:bit and used when we re-wire.<br>
+            The code should now be ready for duplication on the second Micro:Bit and used when we re-wire.<br>
             <br>
-            Ricardo then made some further optimizations to reduce the size of the code and it was complete.<br><br>
+            Ricardo then made some further optimisations to reduce the size of the code and it was complete.<br><br>
             <a href="https://makecode.microbit.org/_i5fUXzgcAV2j">Here is a link to the final code shared on
                 makecode</a>
         </p>
@@ -796,7 +797,7 @@
             We discussed that we are just going to put the breadboard wiring into a nice box inside of the bag for
             protection.<br>
             <br>
-            Tobey gave us another breadboard and the final needed components including, NPNs and soldering for the rest
+            Toby gave us another breadboard and the final needed components including, NPNs and soldering for the rest
             of the vibration motors.<br>
             I completely duplicated the wiring to a second board. For the potentiometer I simply added an extra reading
             for pin
@@ -829,7 +830,7 @@
         <p>
             I made a wiring diagram for documentation purposes and if anyone wanted to replicate it.<br>
             (Note some pins on the diagram are different due to not being supported so refer to the pins used in the
-            code of mentioned in when testing the vibration motors)<br>
+            code or mentioned when testing the vibration motors)<br>
             I used tinkerCad to make it:
         </p>
         <img src="images/DES222 Wiring DiagramCrop.png" alt="Wiring Diagram"><br>
@@ -847,7 +848,7 @@
         <h1>Fabrication Design</h1>
 
         <p>Jorja developed a wooden box to house electronics made from wood, buttons, glue and hair ties.<br>
-            The hair ties were glued and we used used as straps to be able to detach the top wooden panel to insert
+            The hair ties were glued and used used as straps to be able to detach the top wooden panel to insert
             electronics.</p>
         <img src="images/woodGlue.jpg" alt="Wood and Glue"><br>
         <img src="images/paint.jpg" alt="Paint"><br>
@@ -905,7 +906,7 @@
 
         <p>
             Once they were all inside we put the box further into the bag, mounted the battery, potentiometer and Jorja
-            attached the Micro:bits to the inside, sides of the bag like we planned in the fabrication diagram. It took
+            attached the Micro:Bits to the inside, sides of the bag like we planned in the fabrication diagram. It took
             lots of fiddling around to get everything
             in the right spot.
         </p>
@@ -935,10 +936,10 @@
         <h2>Future improvement:</h2>
         <p>
             -Use a perfboard or printed circuit to reduce the size of the wired components<br><br>
-            -Use direct soldering for more component such as the vibration motors and LED strips for more
+            -Use direct soldering for more components such as the vibration motors and LED strips for more
             stability<br><br>
             -Use waterproof external microphones that can be placed on the outside of the bag for better pickup than the
-            Micro:Bits and reduce bag rubbing to be picked up in the microphone<br><br>
+            Micro:Bits and reduce bag rubbing from being picked up in the microphone<br><br>
             -Add buttons and move potentiometer to the sleeves of the bag to control the brightness, gain and other
             functions easily on the sleeve for better access<br><br>
             <br><br>
